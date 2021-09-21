@@ -15,4 +15,5 @@ with open(logfile) as f:
         msgEnd = nameIndex.span()[0]
         errMsg = line[msgStart:msgEnd]
         errors[errMsg.strip()] = errors.get(errMsg.strip(), 0)+1
-print(errors)
+sort_errors = sorted(errors.items(), key=lambda x: x[1], reverse=True)
+print(sort_errors)
