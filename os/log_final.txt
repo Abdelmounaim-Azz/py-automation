@@ -5,6 +5,6 @@ May 21 12:22:22 ubuntu.local ticky:  ERROR: Connection to DB failed (john)
 May 22 12:22:22 ubuntu.local ticky: ERROR: Connection to DB failed (john)
 June 21 12:22:22 ubuntu.local ticky: INFO: Created ticket [#1234] (jane)
 June 22 12:22:22 ubuntu.local ticky: INFO: Created ticket [#7474] (john)
-June 23 12:22:22 ubuntu.local ticky: ERROR: Connection to DB failed (liza)
+June 23 12:22:22 ubuntu.local ticky: ERROR: Network Issue (liza)
 September 21 12:22:22 ubuntu.local ticky: INFO: Created ticket [#7755] (jane)
 
