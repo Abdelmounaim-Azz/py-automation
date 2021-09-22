@@ -1,21 +1,27 @@
 import shutil
 import psutil
+import sys
 
 
-def check_disk_usage(disk):
-    """receives a disk to check and return true if there is more than 20 percent free on disk usage or false if it s less """
+def check_disk_usage(disk, min_abs, min_percent):
     du = shutil.disk_usage(disk)
-    free = du.free / du.total * 100
-    return free > 20
+    free = 100 * du.free / du.total
+    gb_free = du.free / 2**30
+    if free < min_percent or gb_free < min_abs:
+        return False
+    return True
 
 
 def check_cpu_usage():
     """machine is healthy if cpu usage is less than 75 percent"""
     usage = psutil.cpu_percent(1)
+    print("DEBUG:usage:{}".format(usage))
     return usage < 75
 
 
-if not check_disk_usage("/") or not check_cpu_usage():
+if not check_disk_usage("/", 5, 13) or not check_cpu_usage():
     print("ERROR")
-else:
-    print("All good.")
+    sys.exit(1)
+
+print("All good.")
+sys.exit(0)
