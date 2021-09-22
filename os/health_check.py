@@ -3,11 +3,11 @@ import psutil
 import sys
 
 
-def check_disk_usage(disk, min_abs, min_percent):
+def check_disk_usage(disk, min_gb, min_percent):
     du = shutil.disk_usage(disk)
     free = 100 * du.free / du.total
     gb_free = du.free / 2**30
-    if free < min_percent or gb_free < min_abs:
+    if free < min_percent or gb_free < min_gb:
         return False
     return True
 
