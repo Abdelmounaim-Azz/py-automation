@@ -11,7 +11,8 @@ with open(logfile) as f:
         errP = r"ERROR: "
         error = re.search(errP, line)
         if error is None:
-            users[name] = users.get(name, 0)+1
+            users[name] = users.get(name, {"Info": 0})
+            users[name]["Info"] += 1
         else:
-            users[name] = users.get(name, 0) + 1
+            print("Not implemented")
 print(sorted(users.items()))
