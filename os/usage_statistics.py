@@ -14,5 +14,6 @@ with open(logfile) as f:
             users[name] = users.get(name, {"Info": 0})
             users[name]["Info"] += 1
         else:
-            print("Not implemented")
+            users[name] = users.get(name, {"Error": 0})
+            users[name]["Error"] += 1
 print(sorted(users.items()))
